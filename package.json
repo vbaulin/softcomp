@@ -1,0 +1,27 @@
+{
+  "name": "softcomp-typescript",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "import:wordpress": "tsx scripts/import-wordpress.ts"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "2.106.0",
+    "next": "16.2.6",
+    "react": "19.2.6",
+    "react-dom": "19.2.6"
+  },
+  "devDependencies": {
+    "@types/node": "25.9.1",
+    "@types/react": "19.2.15",
+    "@types/react-dom": "19.2.3",
+    "dotenv": "17.4.2",
+    "mysql2": "3.22.3",
+    "tsx": "4.22.3",
+    "typescript": "6.0.3"
+  }
+}
