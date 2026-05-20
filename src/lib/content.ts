@@ -126,6 +126,63 @@ export async function getEvents(limit?: number): Promise<EventItem[]> {
   }));
 }
 
+export async function getEventBySlug(slug: string): Promise<EventItem> {
+  const fallback = events.find((event) => event.slug === slug);
+  const supabase = getSupabaseClient();
+
+  if (!supabase) {
+    if (fallback) {
+      return fallback;
+    }
+    notFound();
+  }
+
+  const { data, error } = await supabase
+    .from("events")
+    .select("slug,title,starts_at,ends_at,venue,excerpt,content_blocks,image_url,image_alt")
+    .eq("slug", slug)
+    .eq("status", "published")
+    .maybeSingle();
+
+  if (error || !data) {
+    if (fallback) {
+      return fallback;
+    }
+    notFound();
+  }
+
+  const htmlBlock = Array.isArray(data.content_blocks)
+    ? data.content_blocks.find((block) => block?.type === "html" && typeof block.html === "string")
+    : undefined;
+
+  return {
+    slug: data.slug,
+    title: data.title,
+    startsAt: data.starts_at,
+    endsAt: data.ends_at ?? undefined,
+    venue: data.venue ?? undefined,
+    excerpt: data.excerpt ?? "",
+    contentHtml: htmlBlock?.html,
+    imageUrl: data.image_url ?? undefined,
+    imageAlt: data.image_alt ?? undefined
+  };
+}
+
+export function getAdjacentFallbackEvents(slug: string): {
+  previous?: EventItem;
+  next?: EventItem;
+} {
+  const index = events.findIndex((event) => event.slug === slug);
+  if (index < 0) {
+    return {};
+  }
+
+  return {
+    previous: events[index - 1],
+    next: events[index + 1]
+  };
+}
+
 export async function getSitePage(slugSegments: string[]): Promise<SitePage> {
   const slug = slugSegments.join("/");
   const fallback = fallbackPages[slug];
@@ -162,4 +219,3 @@ export async function getSitePage(slugSegments: string[]): Promise<SitePage> {
     blocks: data.content_blocks ?? []
   };
 }
-

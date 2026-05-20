@@ -188,11 +188,21 @@ export const events: EventItem[] = [
   {
     slug: "bombannes-summer-school-on-scattering-2026",
     title: "Bombannes summer school on scattering 2026",
-    startsAt: "2026-06-09T00:00:00+02:00",
-    endsAt: "2026-06-16T23:59:59+02:00",
-    venue: "Carcan-Maubuisson, France",
+    startsAt: "2026-06-09T17:30:00+02:00",
+    endsAt: "2026-06-16T17:30:00+02:00",
+    venue: "Carcan-Maubuisson (Gironde, France)",
+    venueAddress: "France",
+    organizer: {
+      name: "Julian Oberdisse",
+      phone: "+33 4 67 14 35 23",
+      email: "bombannes@ill.fr",
+      url: "https://coulomb.umontpellier.fr/"
+    },
+    websiteUrl: "https://workshops.ill.fr/e/bombannes2026",
     excerpt:
-      "The 17th Bombannes Summer School on scattering methods applied to soft condensed matter."
+      "The 17th Bombannes Summer School on scattering methods applied to soft condensed matter.",
+    contentHtml:
+      '<p>We are pleased to announce the&nbsp;<b>17th Bombannes Summer School on "Scattering Methods Applied to Soft Condensed Matter"</b>. This event will be held from&nbsp;<b>9th to 16th June 2026</b>&nbsp;at the vacation centre "Les Bruy&egrave;res" in Bombannes/ Carcans-Maubuisson, Gironde, France.</p><div><div>The&nbsp;<b>deadline for pre-registration is the 20th February 2026</b>, with decisions in April.&nbsp;Further information on the school together with on-line pre-registration can be found on our website:</div><div><a class="moz-txt-link-freetext" href="https://workshops.ill.fr/e/bombannes2026">https://workshops.ill.fr/e/bombannes2026</a></div><div>Please distribute this information to colleagues or students who might be interested. You can also download a flyer at the bottom of our webpage.</div><div>On behalf of the Organising&nbsp;Committee,&nbsp;best regards, Julian Oberdisse, Peter Lindner, Orsolya Czakkel</div><div>&nbsp;</div><div>For any queries please contact us via the e-mail&nbsp;<a class="moz-txt-link-freetext" href="mailto:bombannes@ill.fr">bombannes@ill.fr</a></div></div>'
   },
   {
     slug: "20th-european-student-colloid-conference",
@@ -355,4 +365,3 @@ export const fallbackPages: Record<string, SitePage> = {
     ]
   }
 };
-

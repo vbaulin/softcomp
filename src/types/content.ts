@@ -32,6 +32,15 @@ export type EventItem = {
   startsAt: string;
   endsAt?: string;
   venue?: string;
+  venueAddress?: string;
+  organizer?: {
+    name: string;
+    phone?: string;
+    email?: string;
+    url?: string;
+  };
+  websiteUrl?: string;
+  contentHtml?: string;
   excerpt: string;
   imageUrl?: string;
   imageAlt?: string;
@@ -85,4 +94,3 @@ export type SiteMeta = {
   researchGateUrl: string;
   socials: Array<{ label: string; href: string }>;
 };
-
