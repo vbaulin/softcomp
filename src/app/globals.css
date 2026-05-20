@@ -200,16 +200,15 @@ button:hover {
 .hero {
   width: min(1180px, calc(100% - 32px));
   margin: 28px auto 22px;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
+  position: relative;
+  min-height: 430px;
+  overflow: hidden;
+  background: #1e2c32;
 }
 
 .hero-card {
-  position: relative;
-  min-height: 310px;
-  overflow: hidden;
-  background: #1e2c32;
+  position: absolute;
+  inset: 0;
 }
 
 .hero-card img {
@@ -225,9 +224,10 @@ button:hover {
 
 .hero-card-content {
   position: absolute;
-  inset: auto 0 0;
+  left: 58px;
+  bottom: 46px;
   z-index: 1;
-  padding: 24px;
+  width: min(540px, calc(100% - 96px));
   color: #fff;
 }
 
@@ -242,8 +242,8 @@ button:hover {
 .hero h2 {
   margin: 0 0 8px;
   color: #fff;
-  font-size: 28px;
-  line-height: 1.08;
+  font-size: 42px;
+  line-height: 1.05;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
 }
 
@@ -261,6 +261,29 @@ button:hover {
   display: block;
   margin-top: 10px;
   color: rgba(255, 255, 255, 0.78);
+}
+
+.hero-dots {
+  position: absolute;
+  right: 34px;
+  bottom: 28px;
+  z-index: 2;
+  display: flex;
+  gap: 8px;
+}
+
+.hero-dots button {
+  width: 10px;
+  height: 10px;
+  min-height: 10px;
+  border: 2px solid #fff;
+  border-radius: 999px;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.hero-dots button.is-active {
+  background: #fff;
 }
 
 .content-shell {
@@ -818,7 +841,6 @@ input {
     display: block;
   }
 
-  .hero,
   .home-grid,
   .page-grid,
   .feature-row {
@@ -852,12 +874,23 @@ input {
     font-size: 28px;
   }
 
-  .hero-card {
-    min-height: 270px;
+  .hero {
+    min-height: 360px;
   }
 
   .hero h2 {
-    font-size: 24px;
+    font-size: 30px;
+  }
+
+  .hero-card-content {
+    left: 24px;
+    bottom: 34px;
+    width: calc(100% - 48px);
+  }
+
+  .hero-dots {
+    right: 24px;
+    bottom: 18px;
   }
 
   .news-item,
